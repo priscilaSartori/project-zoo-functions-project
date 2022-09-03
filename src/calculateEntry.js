@@ -1,31 +1,32 @@
 const data = require('../data/zoo_data');
 
 function countEntrants(entrants) {
-  let somaEntrada = {};
-  somaEntrada = { child: 0, adult: 0, senior: 0 };
-  entrants.filter((entrant) => {
-    if (entrant.age < 18) {
+  const somaEntrada = { child: 0, adult: 0, senior: 0 };
+  const age = entrants.map((entrant) => entrant.age);
+  for (let index = 0; index < age.length; index += 1) {
+    if (age[index] < 18) {
       somaEntrada.child += 1;
-    } else if (entrant.age < 50) {
+    } else if (age[index] < 50) {
       somaEntrada.adult += 1;
-    } else if (entrant.age >= 50) {
+    } else if (age[index] >= 50) {
       somaEntrada.senior += 1;
     }
-  });
+  }
   return somaEntrada;
 }
 
 function valor(entrants) {
   let pago = 0;
-  entrants.filter((entrant) => {
-    if (entrant.age < 18) {
+  const age = entrants.map((entrant) => entrant.age);
+  for (let index = 0; index < age.length; index += 1) {
+    if (age[index] < 18) {
       pago += data.prices.child;
-    } else if (entrant.age < 50) {
+    } else if (age[index] < 50) {
       pago += data.prices.adult;
-    } else if (entrant.age >= 50) {
+    } else if (age[index] >= 50) {
       pago += data.prices.senior;
     }
-  });
+  }
   return Number(parseFloat(pago).toFixed(2));
 }
 
