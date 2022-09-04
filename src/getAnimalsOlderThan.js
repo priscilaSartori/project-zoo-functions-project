@@ -3,12 +3,12 @@
 // Os animais devem ter essa idade ou serem mais velhos.
 // Retorne um valor booleano.
 const data = require('../data/zoo_data');
-const { species, employees, hours, prices } = require('../data/zoo_data');
+const { species } = require('../data/zoo_data');
 
 function getAnimalsOlderThan(animal, age) {
-  const animals = species.find((specie) => specie.name === animal)
-     const animalVelho = animals.residents.every((resident) => resident.age >= age)
-      return animalVelho
-    }  
+  const animals = species.find((specie) => specie.name === animal);
+  const animalVelho = animals.residents.every((resident) => resident.age >= age);
+  return animalVelho;
+}
 
 module.exports = getAnimalsOlderThan;
