@@ -5,12 +5,11 @@ const data = require('../data/zoo_data');
 
 function getSpeciesByIds(...ids) {
   const { species } = data;
-    const especie = [];
-    ids.forEach( (id) => {
-        especie.push(species.filter((animal) => id === animal.id)[0])
-    })
-    return especie;
-  }
-  
+  const especie = [];
+  ids.forEach((id) => {
+    especie.push(species.filter((animal) => id === animal.id)[0]);
+  });
+  return especie;
+}
 
 module.exports = getSpeciesByIds;
