@@ -67,19 +67,17 @@ function buscaTodos() {
 function coberturaNome(colaborador) {
   if (species.map((specie) => specie.name.includes(colaborador))) {
     return buscaNome(colaborador);
-  } 
-  throw new Error ('Informações inválidas');
+  }
+  throw new Error('Informações inválidas');
 }
 
 function coberturaId(colaborador) {
-
   if (employees.some((empl) => empl.id === colaborador.id)) {
     return buscaId(colaborador);
   } if (employees.some((empl) => empl.id !== colaborador)) {
-    throw new Error ('Informações inválidas');
+    throw new Error('Informações inválidas');
   }
 }
-
 
 function getEmployeesCoverage(colaborador) {
   if (colaborador === undefined) {
